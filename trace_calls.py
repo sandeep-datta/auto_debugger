@@ -24,12 +24,11 @@ def trace_calls(frame, event, arg):
 
     return trace_calls
 
-def b():
-    print('in b()')
-
-def a():
-    print('in a()')
-    b()
-
-sys.settrace(trace_calls)
-a()
+if __name__ == '__main__':
+    def b():
+        print('in b()')
+    def a():
+        print('in a()')
+        b()
+    sys.settrace(trace_calls)
+    a()

@@ -1,0 +1,11 @@
+h1. Auto debugger
+
+Don't quite know where I am going with this yet. But here is what I am thinking...
+
+* I need a tool which can record a trace of all the lines executed in a python program along with any relevant state at that point of time.
+
+* The relevant state should probably be captured as deltas.
+
+* I should be able to see the values passed to a function along with the names of the arguments.
+
+* I should be able to see the value returned by a logged function.
