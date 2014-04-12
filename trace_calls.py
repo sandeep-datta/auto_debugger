@@ -2,12 +2,13 @@
 # encoding: utf-8
 
 import sys
+from itertools import islice
 from pylib.decorators import memoized
 
 @memoized
 def get_line(fileName, lineNo):
     with open(fileName) as f:
-        return f[lineNo].rstrip()
+        return f.read().splitlines()[lineNo-1].rstrip()
 
 def trace_calls(frame, event, arg):
     if event != 'call':
@@ -19,7 +20,7 @@ def trace_calls(frame, event, arg):
 
     line = get_line(func_filename, func_line_no)
 
-    print(line)
+    print('{}:({}) {}'.format(func_filename, func_line_no, line))
 
     return trace_calls
 
